@@ -1,0 +1,28 @@
+{
+  $schema: 'https://docs.renovatebot.com/renovate-schema.json',
+  extends: [
+    'local>opentoucan/renovate-config',
+  ],
+  customManagers: [
+    {
+      customType: "regex",
+      description: "Update Java Version",
+      fileMatch: ["(^|.*/)build.gradle.kts$"],
+      matchStrings: ["jvmToolchain\\((?<currentValue>.*)\\)"],
+      datasourceTemplate: "java-version",
+      depNameTemplate: "java",
+      extractVersionTemplate: "^(?<version>\\d+)"
+    }
+  ],
+  packageRules: [
+    {
+      description: ['Java Version Group'],
+      groupName: 'Java Version',
+      matchDatasources: ['java-version'],
+      matchPackageNames: ['java'],
+      group: {
+        commitMessageTopic: '{{{groupName}}} group'
+      }
+    },
+  ],
+}
