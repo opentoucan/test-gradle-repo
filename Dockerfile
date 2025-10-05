@@ -5,7 +5,7 @@ COPY . /app/
 RUN cd /app && gradle --build-cache assemble
 
 # renovate: datasource=docker depName=openjdk-docker
-FROM openjdk:17-slim
+FROM openjdk:25-slim
 ARG VERSION
 ENV KOBOT_VERSION=${VERSION}
 RUN mkdir /app
