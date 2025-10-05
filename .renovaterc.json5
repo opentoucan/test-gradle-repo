@@ -17,15 +17,20 @@
       customType: "regex",
       description: "Gradle Docker version",
       managerFilePatterns: [
-        "/(^|/|\\.)Dockerfile$/",
+        "/^Dockerfile$/",
       ],
       matchStrings: [
-        "FROM (?<depName>gradle):(?<currentValue>\\w+)"
+        "FROM (?<depName>gradle):(?<currentValue>jdk\\d+)"
       ],
       datasourceTemplate: "docker",
     }
   ],
   packageRules: [
+    {
+      matchPackageNames: ["gradle"],
+      matchDatasources: ["docker"],
+      versioning: "regex:^(?:jdk)?(?<major>\\d+)$"
+    },
     {
       description: ['Java Version Group'],
       groupName: 'Java Version',
