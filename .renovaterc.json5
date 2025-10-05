@@ -23,7 +23,7 @@
     {
       description: ['Java Version Group'],
       groupName: 'Java Version',
-      matchDepNames: ['jdk', 'openjdk', 'java'],
+      matchDepNames: ['gradle', 'openjdk', 'java'],
       group: {
         commitMessageTopic: '{{{groupName}}} group'
       },
