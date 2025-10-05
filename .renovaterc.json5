@@ -32,6 +32,13 @@
       versioning: "regex:^(?:jdk)?(?<major>\\d+)$"
     },
     {
+      // Disable conflicting gradle dependency update
+      matchPackageNames: ["gradle"],
+      matchDatasources: ["docker"],
+      matchManagers: ["dockerfile"],
+      enabled: false
+    },
+    {
       description: ['Java Version Group'],
       groupName: 'Java Version',
       matchDepNames: ['gradle-toolchain', 'openjdk', 'gradle'],
