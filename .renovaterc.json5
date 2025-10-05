@@ -20,17 +20,16 @@
         "/(^|/|\\.)Dockerfile$/",
       ],
       matchStrings: [
-        "FROM (?<depName>gradle):jdk(?<currentValue>\\d+)"
+        "FROM (?<depName>gradle):(?<currentValue>\\w+)"
       ],
       datasourceTemplate: "docker",
-      depNameTemplate: "gradle-docker-jdk",
     }
   ],
   packageRules: [
     {
       description: ['Java Version Group'],
       groupName: 'Java Version',
-      matchDepNames: ['gradle-toolchain', 'openjdk', 'gradle-docker-jdk'],
+      matchDepNames: ['gradle-toolchain', 'openjdk', 'gradle'],
       group: {
         commitMessageTopic: '{{{groupName}}} group'
       },
