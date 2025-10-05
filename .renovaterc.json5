@@ -5,17 +5,17 @@
   ],
   customManagers: [
     {
-      customType: 'regex',
-      description: 'Process annotated dependencies',
+      customType: "regex",
+      description: "Process annotated dependencies",
       managerFilePatterns: [
-        '/(^|/|\\.)Dockerfile$/',
-        '(^|.*/)build.gradle.kts$'
+        "/(^|/|\\.)Dockerfile$/",
+        "(^|.*/)build.gradle.kts$"
       ],
       matchStrings: [
         // jvmToolchain(17)
-        '# datasource=(?<datasource>\\S+) depName=(?<depName>\\S+)\\n.+\((?<currentValue>\\S+)\)',
+        "datasource=(?<datasource>\\S+) depName=(?<depName>\\S+)\\n.+\((?<currentValue>\\S+)\)",
         // FROM gradle:jdk17 AS build
-        '# datasource=(?<datasource>\\S+) depName=(?<depName>\\S+)\\n.+:([a-zA-Z]+)?(?<currentValue>\\S+)'
+        "datasource=(?<datasource>\\S+) depName=(?<depName>\\S+)\\n.+:([a-zA-Z]+)?(?<currentValue>\\S+)"
       ]
     }
   ],
