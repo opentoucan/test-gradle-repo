@@ -13,7 +13,7 @@
       ],
       matchStrings: [
         // jvmToolchain(17)
-        '# datasource=(?<datasource>\S+) depName=(?<depName>\S+)\n.+\((?<currentValue>\S+)\)',
+        '# datasource=(?<datasource>\\S+) depName=(?<depName>\\S+)\\n.+\((?<currentValue>\\S+)\)',
         // FROM gradle:jdk17 AS build
         '# datasource=(?<datasource>\\S+) depName=(?<depName>\\S+)\\n.+:([a-zA-Z]+)?(?<currentValue>\\S+)'
       ]

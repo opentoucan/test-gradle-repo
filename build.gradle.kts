@@ -1,6 +1,6 @@
 
 kotlin {
-    # renovate: datasource=docker depName=jdk
+    # renovate: datasource=java-version depName=jdk
     jvmToolchain(17)
     compilerOptions {
         freeCompilerArgs.addAll("-Xjsr305=strict")
