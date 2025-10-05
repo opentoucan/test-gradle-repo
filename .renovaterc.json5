@@ -10,7 +10,7 @@
       fileMatch: ["(^|.*/)build.gradle.kts$"],
       matchStrings: ["jvmToolchain\\((?<currentValue>.*)\\)"],
       datasourceTemplate: "java-version",
-      depNameTemplate: "java",
+      depNameTemplate: "gradle-toolchain",
       extractVersionTemplate: "^(?<version>\\d+)"
     }
   ],
@@ -18,11 +18,11 @@
     {
       description: ['Java Version Group'],
       groupName: 'Java Version',
-      matchDatasources: ['java-version'],
-      matchPackageNames: ['java'],
+      matchDepNames: ['gradle-jdk-docker', 'openjdk-docker', 'gradle-toolchain'],
       group: {
         commitMessageTopic: '{{{groupName}}} group'
-      }
+      },
+      minimumGroupSize: 3
     },
   ],
 }
