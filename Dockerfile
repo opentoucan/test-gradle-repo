@@ -1,4 +1,3 @@
-# renovate: datasource=docker depName=gradle
 FROM gradle:jdk17 AS build
 ARG VERSION
 COPY . /app/
