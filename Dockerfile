@@ -1,9 +1,10 @@
+# renovate: datasource=docker depName=jdk
 FROM gradle:jdk17 AS build
 ARG VERSION
 COPY . /app/
 RUN cd /app && gradle --build-cache assemble
 
-# renovate: datasource=docker depName=openjdk-docker
+# renovate: datasource=docker depName=jdk
 FROM openjdk:17-slim
 ARG VERSION
 ENV KOBOT_VERSION=${VERSION}

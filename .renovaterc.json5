@@ -5,20 +5,25 @@
   ],
   customManagers: [
     {
-      customType: "regex",
-      description: "Update Java Version",
-      fileMatch: ["(^|.*/)build.gradle.kts$"],
-      matchStrings: ["jvmToolchain\\((?<currentValue>.*)\\)"],
-      datasourceTemplate: "java-version",
-      depNameTemplate: "gradle-toolchain",
-      extractVersionTemplate: "^(?<version>\\d+)"
+      customType: 'regex',
+      description: 'Process annotated dependencies',
+      managerFilePatterns: [
+        '/(^|/|\\.)Dockerfile$/',
+        '(^|.*/)build.gradle.kts$'
+      ],
+      matchStrings: [
+        // jvmToolchain(17)
+        '# datasource=(?<datasource>\S+) depName=(?<depName>\S+)\n.+\((?<currentValue>\S+)\)',
+        // FROM gradle:jdk17 AS build
+        '# datasource=(?<datasource>\\S+) depName=(?<depName>\\S+)\\n.+:([a-zA-Z]+)?(?<currentValue>\\S+)'
+      ]
     }
   ],
   packageRules: [
     {
       description: ['Java Version Group'],
       groupName: 'Java Version',
-      matchDepNames: ['gradle', 'openjdk', 'gradle-toolchain'],
+      matchDepNames: ['jdk', 'openjdk'],
       group: {
         commitMessageTopic: '{{{groupName}}} group'
       },
