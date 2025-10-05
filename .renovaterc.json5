@@ -18,7 +18,7 @@
     {
       description: ['Java Version Group'],
       groupName: 'Java Version',
-      matchDepNames: ['gradle-jdk-docker', 'openjdk-docker', 'gradle-toolchain'],
+      matchDepNames: ['gradle', 'openjdk', 'gradle-toolchain'],
       group: {
         commitMessageTopic: '{{{groupName}}} group'
       },
