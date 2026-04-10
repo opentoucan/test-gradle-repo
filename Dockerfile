@@ -1,4 +1,4 @@
-FROM gradle:jdk17 AS build
+FROM gradle:jdk26 AS build
 ARG VERSION
 COPY . /app/
 RUN cd /app && gradle --build-cache assemble
