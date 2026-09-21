@@ -1,6 +1,6 @@
 
 kotlin {
-    jvmToolchain(17)
+    jvmToolchain(27)
     compilerOptions {
         freeCompilerArgs.addAll("-Xjsr305=strict")
     }
